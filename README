@@ -1,0 +1,10 @@
+Arka commons package
+
+do stage in activator
+
+mvn install:install-file -Dfile=target\scala-2.11\arka-commons_2.11-1.0-SNAPSHOT-sans-externalized.jar -DgroupId=arka-commons -DartifactId=arka-commons_2.11 -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+
+"arka-commons" % "arka-commons_2.11" % "1.0-SNAPSHOT"
+
+resolvers += "Local Maven Repository" at "file:///"+Path.userHome.absolutePath+"/.m2/repository"
+

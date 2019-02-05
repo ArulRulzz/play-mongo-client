@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="commonlib"
+		module="commonlib"
+		revision="1.0-SNAPSHOT"
+		status="integration"
+		publication="20190205090148"
+	>
+		<description>
+		commonlib
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="sources" visibility="public" description=""/>
+		<conf name="docs" visibility="private" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+		<conf name="findbugs" visibility="private" description=""/>
+		<conf name="jacoco" visibility="private" description="" extends="test"/>
+	</configurations>
+	<publications>
+		<artifact name="commonlib" type="pom" ext="pom" conf="pom"/>
+		<artifact name="commonlib" type="jar" ext="jar" conf="compile"/>
+		<artifact name="commonlib" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="commonlib" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.8" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.11.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-enhancer" rev="1.1.0" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="twirl-api_2.11" rev="1.1.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ebean_2.11" rev="3.0.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-server_2.11" rev="2.5.6" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.5.6" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-omnidoc_2.11" rev="2.5.6" conf="docs->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java_2.11" rev="2.5.6" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-netty-server_2.11" rev="2.5.6" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-logback_2.11" rev="2.5.6" conf="compile->default(compile)"/>
+		<dependency org="com.google.code.findbugs" name="findbugs" rev="3.0.0" conf="findbugs->default"/>
+		<dependency org="com.google.code.findbugs" name="jsr305" rev="3.0.0" conf="findbugs->default"/>
+		<dependency org="org.jacoco" name="org.jacoco.agent" rev="0.7.1.201405082137" conf="jacoco->default(compile)">
+			<artifact name="org.jacoco.agent" type="jar" ext="jar" conf="*"/>
+		</dependency>
+		<dependency org="com.typesafe.play" name="play-java-ws_2.11" rev="2.5.6" conf="compile->default(compile)"/>
+		<dependency org="com.github.fge" name="json-patch" rev="1.9" conf="compile->default(compile)"/>
+		<dependency org="org.mongodb" name="mongo-java-driver" rev="3.2.2" conf="compile->default(compile)"/>
+		<dependency org="commons-io" name="commons-io" rev="2.4" conf="compile->default(compile)"/>
+		<dependency org="net.logstash.logback" name="logstash-logback-encoder" rev="4.7" conf="compile->default(compile)"/>
+		<dependency org="org.apache.commons" name="commons-pool2" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="commons-httpclient" name="commons-httpclient" rev="3.1" conf="compile->default(compile)"/>
+		<dependency org="org.codehaus.janino" name="janino" rev="3.0.6" conf="compile->default(compile)"/>
+		<dependency org="org.codehaus.groovy" name="groovy-all" rev="2.4.8" conf="compile->default(compile)"/>
+	</dependencies>
+</ivy-module>
