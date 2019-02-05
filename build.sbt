@@ -1,4 +1,4 @@
-name := """commonlib"""
+name := """mongo-client"""
 
 scalaVersion := "2.11.8"
 
