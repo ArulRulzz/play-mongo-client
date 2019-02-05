@@ -1,10 +1,29 @@
-Arka commons package
+# play-mongo-client
 
-do stage in activator
+It's a unified mongo-client for play framework. It reduce the boiler plate code.
 
-mvn install:install-file -Dfile=target\scala-2.11\arka-commons_2.11-1.0-SNAPSHOT-sans-externalized.jar -DgroupId=arka-commons -DartifactId=arka-commons_2.11 -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+# Conf
 
-"arka-commons" % "arka-commons_2.11" % "1.0-SNAPSHOT"
+Please change the configuration in application.conf for mongo.
+
+
+# Include 
+
+To include in your project just clone and compile this project. And after that just give "publishLocal" command. It'll publish the file in your .ivy folder which means you have the binary in your local. After that you can include it in your build.sbt file. You can turn on the version in this project. Otherwise bydefault it'll be "1.0-SNAPSHOT".
+
+
+#For maven repo
+
+mvn install:install-file -Dfile=target\scala-2.11\mongo-client-1.0-SNAPSHOT-sans-externalized.jar -DgroupId=mongo-client -DartifactId=mongo-client -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+
+"mongo-client" % "mongo-client" % "1.0-SNAPSHOT"
 
 resolvers += "Local Maven Repository" at "file:///"+Path.userHome.absolutePath+"/.m2/repository"
 
+#For sbt
+
+	sbt clean compile publishLocal
+	
+	include in build.sbt
+	
+	"mongo-client" % "mongo-client" % "1.0-SNAPSHOT"
